@@ -52,10 +52,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\MyProjectContext.cs" />
+    <Compile Include="Mapping\UserConfig.cs" />
+    <Compile Include="Migrations\202506281228131_addUserTable.cs" />
+    <Compile Include="Migrations\202506281228131_addUserTable.Designer.cs">
+      <DependentUpon>202506281228131_addUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202506281839389_addUserTableEdit.cs" />
+    <Compile Include="Migrations\202506281839389_addUserTableEdit.Designer.cs">
+      <DependentUpon>202506281839389_addUserTableEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Mapping\" />
     <Folder Include="Models\ViewModels\" />
     <Folder Include="Repositories\" />
     <Folder Include="services\" />
@@ -63,6 +73,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202506281228131_addUserTable.resx">
+      <DependentUpon>202506281228131_addUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202506281839389_addUserTableEdit.resx">
+      <DependentUpon>202506281839389_addUserTableEdit.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

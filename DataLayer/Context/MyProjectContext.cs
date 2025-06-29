@@ -1,12 +1,22 @@
-﻿using System;
+﻿using DataLayer.Mapping;
+using DataLayer.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataLayer.Context
 {
-    internal class MyProjectContext
+    internal class MyProjectContext: DbContext
     {
+
+        public DbSet<User> Users { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Configurations.Add(new UserConfig());
+        }
     }
 }
