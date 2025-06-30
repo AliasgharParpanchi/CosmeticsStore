@@ -10,7 +10,7 @@ namespace DataLayer.Models
     public class User
     {
         [Key]
-        public int Id { get; set; }
+        public int UserId { get; set; }
 
         [Display(Name = "نام")]
         [MaxLength(150, ErrorMessage = "تعداد کاراکتر مجاز نمی باشد")]
@@ -62,5 +62,7 @@ namespace DataLayer.Models
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        public virtual ICollection<Address> Addresses { get; set; }
     }
 }

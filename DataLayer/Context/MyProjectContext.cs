@@ -13,10 +13,12 @@ namespace DataLayer.Context
     {
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Address> Addresses { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Configurations.Add(new UserConfig());
+
         }
     }
 }

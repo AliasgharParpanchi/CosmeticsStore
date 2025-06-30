@@ -61,7 +61,16 @@
     <Compile Include="Migrations\202506281839389_addUserTableEdit.Designer.cs">
       <DependentUpon>202506281839389_addUserTableEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202506290828086_addAddressTable.cs" />
+    <Compile Include="Migrations\202506290828086_addAddressTable.Designer.cs">
+      <DependentUpon>202506290828086_addAddressTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202506300659594_editAddressTable.cs" />
+    <Compile Include="Migrations\202506300659594_editAddressTable.Designer.cs">
+      <DependentUpon>202506300659594_editAddressTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -80,6 +89,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202506281839389_addUserTableEdit.resx">
       <DependentUpon>202506281839389_addUserTableEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202506290828086_addAddressTable.resx">
+      <DependentUpon>202506290828086_addAddressTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202506300659594_editAddressTable.resx">
+      <DependentUpon>202506300659594_editAddressTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
