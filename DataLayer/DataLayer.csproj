@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\MyProjectContext.cs" />
+    <Compile Include="Enums\CategoryEnums.cs" />
+    <Compile Include="Mapping\CategoryConfig.cs" />
     <Compile Include="Mapping\UserConfig.cs" />
     <Compile Include="Migrations\202506281228131_addUserTable.cs" />
     <Compile Include="Migrations\202506281228131_addUserTable.Designer.cs">
@@ -69,8 +71,17 @@
     <Compile Include="Migrations\202506300659594_editAddressTable.Designer.cs">
       <DependentUpon>202506300659594_editAddressTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202507070923527_addCategoriesTable.cs" />
+    <Compile Include="Migrations\202507070923527_addCategoriesTable.Designer.cs">
+      <DependentUpon>202507070923527_addCategoriesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202507090754308_insertEnumCategoriesTable.cs" />
+    <Compile Include="Migrations\202507090754308_insertEnumCategoriesTable.Designer.cs">
+      <DependentUpon>202507090754308_insertEnumCategoriesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -95,6 +106,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202506300659594_editAddressTable.resx">
       <DependentUpon>202506300659594_editAddressTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507070923527_addCategoriesTable.resx">
+      <DependentUpon>202507070923527_addCategoriesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507090754308_insertEnumCategoriesTable.resx">
+      <DependentUpon>202507090754308_insertEnumCategoriesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
