@@ -42,6 +42,7 @@ namespace DataLayer.Models
         public virtual Category Parent { get; set; }
 
         public virtual ICollection<Category> Children { get; set; }
+        public virtual ICollection<Products_Categories> Products { get; set; }
 
 
     }

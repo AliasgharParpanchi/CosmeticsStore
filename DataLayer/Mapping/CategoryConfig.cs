@@ -22,6 +22,8 @@ namespace DataLayer.Mapping
 
             Property(c => c.SubSystemType)
            .HasColumnType("int");
+
+            ToTable("Categories", "Product");
         }
     }
 }

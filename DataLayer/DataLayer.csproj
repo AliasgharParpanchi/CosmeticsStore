@@ -43,6 +43,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\..\..\Users\98939\source\repos\MyProjectCMS'\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +57,8 @@
     <Compile Include="Context\MyProjectContext.cs" />
     <Compile Include="Enums\CategoryEnums.cs" />
     <Compile Include="Mapping\CategoryConfig.cs" />
+    <Compile Include="Mapping\ProductConfig.cs" />
+    <Compile Include="Mapping\Products_CategoriesConfig.cs" />
     <Compile Include="Mapping\UserConfig.cs" />
     <Compile Include="Migrations\202506281228131_addUserTable.cs" />
     <Compile Include="Migrations\202506281228131_addUserTable.Designer.cs">
@@ -79,9 +84,19 @@
     <Compile Include="Migrations\202507090754308_insertEnumCategoriesTable.Designer.cs">
       <DependentUpon>202507090754308_insertEnumCategoriesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202507100815433_CreateProductsAndProducts_CategoriesTable.cs" />
+    <Compile Include="Migrations\202507100815433_CreateProductsAndProducts_CategoriesTable.Designer.cs">
+      <DependentUpon>202507100815433_CreateProductsAndProducts_CategoriesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202507100826307_EditProductsAndProducts_CategoriesTable.cs" />
+    <Compile Include="Migrations\202507100826307_EditProductsAndProducts_CategoriesTable.Designer.cs">
+      <DependentUpon>202507100826307_EditProductsAndProducts_CategoriesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Products_Categories.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -112,6 +127,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202507090754308_insertEnumCategoriesTable.resx">
       <DependentUpon>202507090754308_insertEnumCategoriesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507100815433_CreateProductsAndProducts_CategoriesTable.resx">
+      <DependentUpon>202507100815433_CreateProductsAndProducts_CategoriesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507100826307_EditProductsAndProducts_CategoriesTable.resx">
+      <DependentUpon>202507100826307_EditProductsAndProducts_CategoriesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
