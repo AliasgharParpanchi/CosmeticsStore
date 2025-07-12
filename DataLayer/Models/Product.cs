@@ -30,16 +30,38 @@ namespace DataLayer.Models
         [AllowHtml]
         public string HowToUse { get; set; }
 
-        [Display(Name = "نام عکس")]
-        public string ImageName { get; set; }
+        [Display(Name = "1نام عکس")]
+        public string ImageName1 { get; set; }        
+        
+        [Display(Name = "2نام عکس")]
+        public string ImageName2 { get; set; }        
+        
+        [Display(Name = "3نام عکس")]
+        public string ImageName3 { get; set; }        
+        
+        [Display(Name = "4نام عکس")]
+        public string ImageName4 { get; set; }        
+        
+        [Display(Name = "5نام عکس")]
+        public string ImageName5 { get; set; }
 
         [Display(Name = "تاریخ اضافه شدن محصول")]
         [DisplayFormat(DataFormatString = "{0:YYYY/MM/DD}")]
         public DateTime CreateDate { get; set; }
 
+        [Display(Name = "قیمت")]
+        [Range(1,int.MaxValue, ErrorMessage = "صحیح نمی باشد")]
+        public int Price { get; set; }
+
+        [Display(Name = "درصد تخفیف")]
+        [Range(0,100,ErrorMessage = "صحیح نمی باشد")]
+        public Decimal? DiscountPercent { get; set; }
+
         [Display(Name = "فعال")]
         public bool IsActive { get; set; }
 
         public virtual ICollection<Products_Categories> Categories { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
+        //public virtual ICollection<Product_Variant> Variant { get; set; }
     }
 }

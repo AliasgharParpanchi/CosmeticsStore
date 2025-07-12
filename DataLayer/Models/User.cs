@@ -64,5 +64,6 @@ namespace DataLayer.Models
         public string Password { get; set; }
 
         public virtual ICollection<Address> Addresses { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

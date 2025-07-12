@@ -17,6 +17,8 @@ namespace DataLayer.Context
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Products_Categories> Products_Categories { get; set; }
+        public DbSet<Product_Variant> Product_Variants { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -25,6 +27,8 @@ namespace DataLayer.Context
             modelBuilder.Configurations.Add(new CategoryConfig());
             modelBuilder.Configurations.Add(new ProductConfig());
             modelBuilder.Configurations.Add(new Products_CategoriesConfig());
+            modelBuilder.Configurations.Add(new Product_VariantConfig());
+            modelBuilder.Configurations.Add(new CommentConfig());
 
         }
     }

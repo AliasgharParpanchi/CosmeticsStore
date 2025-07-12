@@ -57,8 +57,10 @@
     <Compile Include="Context\MyProjectContext.cs" />
     <Compile Include="Enums\CategoryEnums.cs" />
     <Compile Include="Mapping\CategoryConfig.cs" />
+    <Compile Include="Mapping\CommentConfig.cs" />
     <Compile Include="Mapping\ProductConfig.cs" />
     <Compile Include="Mapping\Products_CategoriesConfig.cs" />
+    <Compile Include="Mapping\Product_VariantConfig.cs" />
     <Compile Include="Mapping\UserConfig.cs" />
     <Compile Include="Migrations\202506281228131_addUserTable.cs" />
     <Compile Include="Migrations\202506281228131_addUserTable.Designer.cs">
@@ -92,11 +94,29 @@
     <Compile Include="Migrations\202507100826307_EditProductsAndProducts_CategoriesTable.Designer.cs">
       <DependentUpon>202507100826307_EditProductsAndProducts_CategoriesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202507110936094_EditProductTable.cs" />
+    <Compile Include="Migrations\202507110936094_EditProductTable.Designer.cs">
+      <DependentUpon>202507110936094_EditProductTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202507110947228_CreateProduct_VariantTable.cs" />
+    <Compile Include="Migrations\202507110947228_CreateProduct_VariantTable.Designer.cs">
+      <DependentUpon>202507110947228_CreateProduct_VariantTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202507110951282_EditSchemaProduct_VariantTable.cs" />
+    <Compile Include="Migrations\202507110951282_EditSchemaProduct_VariantTable.Designer.cs">
+      <DependentUpon>202507110951282_EditSchemaProduct_VariantTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202507120845455_CreateCommentTable.cs" />
+    <Compile Include="Migrations\202507120845455_CreateCommentTable.Designer.cs">
+      <DependentUpon>202507120845455_CreateCommentTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Products_Categories.cs" />
+    <Compile Include="Models\Product_Variant.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -133,6 +153,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202507100826307_EditProductsAndProducts_CategoriesTable.resx">
       <DependentUpon>202507100826307_EditProductsAndProducts_CategoriesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507110936094_EditProductTable.resx">
+      <DependentUpon>202507110936094_EditProductTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507110947228_CreateProduct_VariantTable.resx">
+      <DependentUpon>202507110947228_CreateProduct_VariantTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507110951282_EditSchemaProduct_VariantTable.resx">
+      <DependentUpon>202507110951282_EditSchemaProduct_VariantTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507120845455_CreateCommentTable.resx">
+      <DependentUpon>202507120845455_CreateCommentTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
