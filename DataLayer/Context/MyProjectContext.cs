@@ -19,6 +19,7 @@ namespace DataLayer.Context
         public DbSet<Products_Categories> Products_Categories { get; set; }
         public DbSet<Product_Variant> Product_Variants { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Interest> Interests { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -29,6 +30,7 @@ namespace DataLayer.Context
             modelBuilder.Configurations.Add(new Products_CategoriesConfig());
             modelBuilder.Configurations.Add(new Product_VariantConfig());
             modelBuilder.Configurations.Add(new CommentConfig());
+            modelBuilder.Configurations.Add(new InterestConfig());
 
         }
     }

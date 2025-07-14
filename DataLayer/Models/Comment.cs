@@ -24,6 +24,15 @@ namespace DataLayer.Models
         [MaxLength(200, ErrorMessage = "تعداد کاراکتر مجاز نمی باشد")]
         public string Commnet { get; set; }
 
+        [Required]
+        [Display(Name = "تاریخ اضافه شدن محصول")]
+        [DisplayFormat(DataFormatString = "{0:YYYY/MM/DD}")]
+        public DateTime Created { get; set; }
+
+        [Required]
+        [Display(Name = "تایید ادمین")]
+        public bool IsApproved { get; set; }
+
         [ForeignKey("ProductId")]
         public virtual Product Product { get; set; }        
         

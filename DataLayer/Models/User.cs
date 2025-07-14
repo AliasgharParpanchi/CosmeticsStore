@@ -65,5 +65,6 @@ namespace DataLayer.Models
 
         public virtual ICollection<Address> Addresses { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Interest> Interest { get; set; }
     }
 }

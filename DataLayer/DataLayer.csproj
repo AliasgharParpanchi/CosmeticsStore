@@ -58,6 +58,7 @@
     <Compile Include="Enums\CategoryEnums.cs" />
     <Compile Include="Mapping\CategoryConfig.cs" />
     <Compile Include="Mapping\CommentConfig.cs" />
+    <Compile Include="Mapping\InterestConfig.cs" />
     <Compile Include="Mapping\ProductConfig.cs" />
     <Compile Include="Mapping\Products_CategoriesConfig.cs" />
     <Compile Include="Mapping\Product_VariantConfig.cs" />
@@ -110,10 +111,19 @@
     <Compile Include="Migrations\202507120845455_CreateCommentTable.Designer.cs">
       <DependentUpon>202507120845455_CreateCommentTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202507131037324_CreateInterestTableAndEditTables.cs" />
+    <Compile Include="Migrations\202507131037324_CreateInterestTableAndEditTables.Designer.cs">
+      <DependentUpon>202507131037324_CreateInterestTableAndEditTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202507141048202_EditInterestsTable.cs" />
+    <Compile Include="Migrations\202507141048202_EditInterestsTable.Designer.cs">
+      <DependentUpon>202507141048202_EditInterestsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Interest.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Products_Categories.cs" />
     <Compile Include="Models\Product_Variant.cs" />
@@ -165,6 +175,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202507120845455_CreateCommentTable.resx">
       <DependentUpon>202507120845455_CreateCommentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507131037324_CreateInterestTableAndEditTables.resx">
+      <DependentUpon>202507131037324_CreateInterestTableAndEditTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507141048202_EditInterestsTable.resx">
+      <DependentUpon>202507141048202_EditInterestsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
