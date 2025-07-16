@@ -128,7 +128,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.AllBrand
-                        },                        
+                        },
                         new Category
                         {
                             Name = "برندهای برتر",
@@ -136,7 +136,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.TopBrand
-                        },                        
+                        },
                         //آرایشی
                         new Category
                         {
@@ -145,7 +145,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Face
-                        },                       
+                        },
                         new Category
                         {
                             Name = "آرایش چشم و ابرو",
@@ -153,7 +153,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Eye
-                        },                        
+                        },
                         new Category
                         {
                             Name = "آرایش لب",
@@ -161,7 +161,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Lips
-                        },                        
+                        },
                         new Category
                         {
                             Name = "آرایش ناخن",
@@ -169,7 +169,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Nail
-                        },                        
+                        },
                         new Category
                         {
                             Name = "ابزار آرایشی",
@@ -177,7 +177,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Cosmetic
-                        },                        
+                        },
                         new Category
                         {
                             Name = "آرایش بدن",
@@ -194,7 +194,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.FacialCare
-                        },                       
+                        },
                         new Category
                         {
                             Name = "پاک کننده و شوینده",
@@ -202,7 +202,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Cleaner
-                        },                       
+                        },
                         new Category
                         {
                             Name = "مراقبت چشم و ابرو",
@@ -210,7 +210,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.EyebrowCare
-                        },                        
+                        },
                         new Category
                         {
                             Name = "مراقبت بدن",
@@ -218,7 +218,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.BodyCare
-                        },                        
+                        },
                         new Category
                         {
                             Name = "مراقبت لب",
@@ -226,7 +226,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.LipsCare
-                        },                        
+                        },
                         new Category
                         {
                             Name = "مراقبت دست و ناخن",
@@ -234,7 +234,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.HandCare
-                        },                        
+                        },
                         new Category
                         {
                             Name = "مراقبت پا",
@@ -251,7 +251,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Shampo
-                        },                        
+                        },
                         new Category
                         {
                             Name = "مراقبت از مو",
@@ -259,7 +259,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.HairCare
-                        },                        
+                        },
                         new Category
                         {
                             Name = "زیبایی مو",
@@ -267,7 +267,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.HairBeauty
-                        },                        
+                        },
                         new Category
                         {
                             Name = "ابزار آرایش و پیرایش",
@@ -284,7 +284,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Deodorant
-                        },                        
+                        },
                         new Category
                         {
                             Name = "بهداشت دندان و دهان",
@@ -292,7 +292,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Dental
-                        },                        
+                        },
                         new Category
                         {
                             Name = "بهداشت بانوان و آقایان",
@@ -300,7 +300,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Health
-                        },                        
+                        },
                         new Category
                         {
                             Name = "بدن و حمام",
@@ -308,7 +308,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Bath
-                        },                        
+                        },
                         new Category
                         {
                             Name = "لوازم اصلاح و پیرایش",
@@ -316,7 +316,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Shaving
-                        },                       
+                        },
                         new Category
                         {
                             Name = "محصولات زناشویی و جنسی",
@@ -333,7 +333,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Cologne
-                        },                        
+                        },
                         new Category
                         {
                             Name = "اسپری بدن",
@@ -341,7 +341,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.BodySpray
-                        },                        
+                        },
                         new Category
                         {
                             Name = "بادی اسپلش",
@@ -349,7 +349,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.BodySplash
-                        },                        
+                        },
                         new Category
                         {
                             Name = "عطر جیبی",
@@ -357,7 +357,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.PocketPerfume
-                        },                        
+                        },
                         new Category
                         {
                             Name = "خوشبو کننده هوا",
@@ -365,7 +365,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.AirFreshener
-                        },                        
+                        },
                         //لوازم برقی
                         new Category
                         {
@@ -374,7 +374,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.HealthTool
-                        },                        
+                        },
                         new Category
                         {
                             Name = "ابزار برقی مو",
@@ -382,7 +382,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.ElectricHair
-                        },                        
+                        },
                         new Category
                         {
                             Name = "ابزار اصلاح",
@@ -390,7 +390,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.CorrectionTool
-                        },                        
+                        },
                         new Category
                         {
                             Name = "ابزار مراقبت پوست",
@@ -398,7 +398,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.SkinCare
-                        },                        
+                        },
                         //مکمل غذایی و ورزشی
                         new Category
                         {
@@ -407,7 +407,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Bodybuilding
-                        },                        
+                        },
                         new Category
                         {
                             Name = "ویتامین و مواد معدنی",
@@ -415,7 +415,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Vitamins
-                        },                        
+                        },
                         new Category
                         {
                             Name = "مکمل گیاهی و درمانی",
@@ -423,7 +423,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.HerbalSupplement
-                        },                        
+                        },
                         new Category
                         {
                             Name = "مواد مغذی",
@@ -440,7 +440,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Accessory
-                        },                        
+                        },
                         new Category
                         {
                             Name = "کیف و کوله",
@@ -448,7 +448,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Bags
-                        },                        
+                        },
                         new Category
                         {
                             Name = "لباس",
@@ -465,7 +465,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Headphones
-                        },                        
+                        },
                         new Category
                         {
                             Name = "ساعت هوشمند",
@@ -473,7 +473,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.SmartWatch
-                        },                        
+                        },
                         new Category
                         {
                             Name = "اسپیکر",
@@ -481,7 +481,7 @@
                             Level = 2,
                             IsActive = true,
                             SubSystemType = SubSystemCategory.Speaker
-                        },                        
+                        },
                         new Category
                         {
                             Name = "لوازم جانبی",
@@ -499,6 +499,26 @@
                             IsActive = true,
                             SubSystemType = SubSystemCategory.SilverJewelry
                         }
+                );
+
+            context.OrderStatus.AddOrUpdate(
+
+                new OrderStatus
+                {
+                    StatusTitle = "پرداخت شده"
+                },
+                new OrderStatus
+                {
+                    StatusTitle = "درحال پردازش"
+                },
+                new OrderStatus
+                {
+                    StatusTitle = "ارسال شده"
+                },
+                new OrderStatus
+                {
+                    StatusTitle = "دریافت شده"
+                }
                 );
             context.SaveChanges();
         }

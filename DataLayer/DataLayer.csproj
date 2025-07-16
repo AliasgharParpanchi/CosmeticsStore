@@ -56,9 +56,15 @@
   <ItemGroup>
     <Compile Include="Context\MyProjectContext.cs" />
     <Compile Include="Enums\CategoryEnums.cs" />
+    <Compile Include="Enums\OrderStatusEnums.cs" />
+    <Compile Include="Mapping\CartItemConfig.cs" />
     <Compile Include="Mapping\CategoryConfig.cs" />
+    <Compile Include="Mapping\CartConfig.cs" />
     <Compile Include="Mapping\CommentConfig.cs" />
     <Compile Include="Mapping\InterestConfig.cs" />
+    <Compile Include="Mapping\OrderConfig.cs" />
+    <Compile Include="Mapping\OrderItemConfig.cs" />
+    <Compile Include="Mapping\OrderStatusConfig.cs" />
     <Compile Include="Mapping\ProductConfig.cs" />
     <Compile Include="Mapping\Products_CategoriesConfig.cs" />
     <Compile Include="Mapping\Product_VariantConfig.cs" />
@@ -119,11 +125,28 @@
     <Compile Include="Migrations\202507141048202_EditInterestsTable.Designer.cs">
       <DependentUpon>202507141048202_EditInterestsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202507150817241_CreateFullCart.cs" />
+    <Compile Include="Migrations\202507150817241_CreateFullCart.Designer.cs">
+      <DependentUpon>202507150817241_CreateFullCart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202507150939541_EditCartItemTable.cs" />
+    <Compile Include="Migrations\202507150939541_EditCartItemTable.Designer.cs">
+      <DependentUpon>202507150939541_EditCartItemTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202507161050293_CreateFullOrderTables.cs" />
+    <Compile Include="Migrations\202507161050293_CreateFullOrderTables.Designer.cs">
+      <DependentUpon>202507161050293_CreateFullOrderTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Interest.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Models\OrderStatus.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Products_Categories.cs" />
     <Compile Include="Models\Product_Variant.cs" />
@@ -181,6 +204,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202507141048202_EditInterestsTable.resx">
       <DependentUpon>202507141048202_EditInterestsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507150817241_CreateFullCart.resx">
+      <DependentUpon>202507150817241_CreateFullCart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507150939541_EditCartItemTable.resx">
+      <DependentUpon>202507150939541_EditCartItemTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507161050293_CreateFullOrderTables.resx">
+      <DependentUpon>202507161050293_CreateFullOrderTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

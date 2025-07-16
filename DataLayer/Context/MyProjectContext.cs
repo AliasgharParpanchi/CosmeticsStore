@@ -20,6 +20,11 @@ namespace DataLayer.Context
         public DbSet<Product_Variant> Product_Variants { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Interest> Interests { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
+        public DbSet<OrderStatus> OrderStatus { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -31,6 +36,11 @@ namespace DataLayer.Context
             modelBuilder.Configurations.Add(new Product_VariantConfig());
             modelBuilder.Configurations.Add(new CommentConfig());
             modelBuilder.Configurations.Add(new InterestConfig());
+            modelBuilder.Configurations.Add(new CartConfig());
+            modelBuilder.Configurations.Add(new CartItemConfig());
+            modelBuilder.Configurations.Add(new OrderConfig());
+            modelBuilder.Configurations.Add(new OrderStatusConfig());
+            modelBuilder.Configurations.Add(new OrderItemConfig());
 
         }
     }

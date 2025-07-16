@@ -35,5 +35,7 @@ namespace DataLayer.Models
 
         [ForeignKey("ProductId_Variant")]
         public virtual Product Product_Product_Variant { get; set; }
+        public virtual ICollection<CartItem> CartItem { get; set; }
+        public virtual ICollection<OrderItem> OrderItem { get; set; }
     }
 }

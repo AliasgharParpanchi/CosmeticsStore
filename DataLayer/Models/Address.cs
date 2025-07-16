@@ -45,5 +45,7 @@ namespace DataLayer.Models
 
         public virtual User Users { get; set; }
 
+        public virtual ICollection<Order> Orders { get; set; }
+
     }
 }
