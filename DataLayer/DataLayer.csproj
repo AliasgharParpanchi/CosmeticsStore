@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc">
       <HintPath>..\..\..\Users\98939\source\repos\MyProjectCMS'\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
@@ -151,10 +152,20 @@
     <Compile Include="Models\Products_Categories.cs" />
     <Compile Include="Models\Product_Variant.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\ViewModels\AddressViewModel.cs" />
+    <Compile Include="Models\ViewModels\CartItemViewModel.cs" />
+    <Compile Include="Models\ViewModels\CartViewModel.cs" />
+    <Compile Include="Models\ViewModels\CategoryNodeViewModel.cs" />
+    <Compile Include="Models\ViewModels\CommentViewModel.cs" />
+    <Compile Include="Models\ViewModels\CreateCategoryViewModel.cs" />
+    <Compile Include="Models\ViewModels\OrderViewModel.cs" />
+    <Compile Include="Models\ViewModels\OrederItemViewModel.cs" />
+    <Compile Include="Models\ViewModels\ProductViewModel.cs" />
+    <Compile Include="Models\ViewModels\Product_VariantViewModel.cs" />
+    <Compile Include="Models\ViewModels\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\ViewModels\" />
     <Folder Include="Repositories\" />
     <Folder Include="services\" />
   </ItemGroup>
