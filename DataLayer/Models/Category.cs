@@ -44,6 +44,23 @@ namespace DataLayer.Models
         public virtual ICollection<Category> Children { get; set; }
         public virtual ICollection<Products_Categories> Products { get; set; }
 
-
+        [NotMapped]
+        public string LevelDisplay
+        {
+            get
+            {
+                switch (Level)
+                {
+                    case 1:
+                        return "اصلی";
+                    case 2:
+                        return "زیردسته";
+                    case 3:
+                        return "دسته کاربری";
+                    default:
+                        return "نامشخص";
+                }
+            }
+        }
     }
 }

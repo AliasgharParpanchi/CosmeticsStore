@@ -38,6 +38,8 @@ namespace DataLayer.Models.ViewModels
         [Display(Name = "دسته والد")]
         public string ParentName { get; set; }
 
+        public bool HasChildren { get; set; }
+
         public List<CategoryNodeViewModel> Children { get; set; } = new List<CategoryNodeViewModel>();
     }
 }

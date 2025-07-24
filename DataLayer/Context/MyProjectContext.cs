@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Context
 {
-    internal class MyProjectContext: DbContext
+    public class MyProjectContext: DbContext
     {
 
         public DbSet<User> Users { get; set; }
