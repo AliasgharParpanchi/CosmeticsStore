@@ -63,6 +63,6 @@ namespace DataLayer.Models
         public virtual ICollection<Products_Categories> Categories { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Interest> Interest { get; set; }
-        //public virtual ICollection<Product_Variant> Variant { get; set; }
+        public virtual ICollection<Product_Variant> Variant { get; set; }
     }
 }

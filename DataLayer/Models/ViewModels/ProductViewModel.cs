@@ -46,6 +46,8 @@ namespace DataLayer.Models.ViewModels
         [Display(Name = "5نام عکس")]
         public string ImageName5 { get; set; }
 
+        public string Search {  get; set; }
+
         [Display(Name = "تاریخ اضافه شدن محصول")]
         [DisplayFormat(DataFormatString = "{0:YYYY/MM/DD}")]
         public DateTime CreateDate { get; set; }
@@ -66,6 +68,11 @@ namespace DataLayer.Models.ViewModels
         public HttpPostedFileBase ImageUpload3 { get; set; }
         public HttpPostedFileBase ImageUpload4 { get; set; }
         public HttpPostedFileBase ImageUpload5 { get; set; }
+
+        public int? CategoryIdSearch { get; set; }
+        public string Sort { get; set; }
+        public int PageSize { get; set; }
+        public int PageIndex { get; set; }
 
         public List<Product_VariantViewModel> ProductVariants { get; set; }
         public List<CategoryNodeViewModel> CategoryNodeViewModels { get; set; }
