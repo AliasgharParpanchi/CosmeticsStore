@@ -26,7 +26,7 @@ namespace CosmeticsStore
                                                 MyProjectContext,
                                                 Configuration>());
             // Dependency Injection
-            DependencyInjectionConfig.Register();
+            //DependencyInjectionConfig.Register();
         }
     }
 }

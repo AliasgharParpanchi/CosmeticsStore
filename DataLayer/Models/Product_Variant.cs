@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataLayer.Models
 {
-    public class Product_Variant
+    [Table("ProductVariants")] // تعیین نام جدول صریح
+    public class ProductVariant  // حذف underscore
     {
-
         [Key]
         public int VariantId { get; set; }
 
         [Required]
-        public int ProductId_Variant { get; set; }
+        public int ProductId { get; set; }  // نام ساده‌تر
 
         [Display(Name = "رنگ")]
         [MaxLength(100, ErrorMessage = "تعداد کاراکتر مجاز نمی باشد")]
@@ -33,9 +30,11 @@ namespace DataLayer.Models
         [Range(0, int.MaxValue, ErrorMessage = "صحیح نمی باشد")]
         public int Stock { get; set; }
 
-        [ForeignKey("ProductId_Variant")]
-        public virtual Product Product_Product_Variant { get; set; }
-        public virtual ICollection<CartItem> CartItem { get; set; }
-        public virtual ICollection<OrderItem> OrderItem { get; set; }
+        // Navigation property
+        [ForeignKey("ProductId")]
+        public virtual Product Product { get; set; }
+
+        public virtual ICollection<CartItem> CartItems { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }

@@ -41,5 +41,14 @@ namespace DataLayer.Models.ViewModels
         public bool HasChildren { get; set; }
 
         public List<CategoryNodeViewModel> Children { get; set; } = new List<CategoryNodeViewModel>();
+
+        // مسیر کامل دسته (breadcrumb)
+        public string FullPath { get; set; }
+
+        // تعداد محصولات این دسته
+        public int ProductCount { get; set; }
+
+        // تعداد کل زیر مجموعه‌ها
+        public int ChildrenCount { get; set; }
     }
 }

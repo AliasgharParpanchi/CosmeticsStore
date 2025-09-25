@@ -84,8 +84,8 @@ namespace DataLayer.Repository
         public async Task UpdateProductStockAsync(int productId, List<Product_VariantViewModel> variants)
         {
             // Fetch all existing variants for the product in one query
-            var existingVariants = await _context.Product_Variants
-                .Where(v => v.ProductId_Variant == productId)
+            var existingVariants = await _context.ProductVariants
+                .Where(v => v.ProductId == productId)
                 .ToListAsync();
 
             foreach (var variant in variants)
@@ -99,9 +99,9 @@ namespace DataLayer.Repository
                 if (inventory == null)
                 {
                     // Create new variant
-                    _context.Product_Variants.Add(new Product_Variant
+                    _context.ProductVariants.Add(new ProductVariant
                     {
-                        ProductId_Variant = productId,
+                        ProductId = productId,
                         Stock = variant.Stock,
                         Color = variant.Color,
                         Size = variant.Size,
@@ -113,7 +113,7 @@ namespace DataLayer.Repository
                     // Update existing variant
                     inventory.Stock = variant.Stock;
                 }
-                _context.Product_Variants.AddOrUpdate(inventory);
+                _context.ProductVariants.AddOrUpdate(inventory);
             }
 
             
@@ -137,7 +137,7 @@ namespace DataLayer.Repository
         }
 
 
-        public Task AddProductVariantAsync(int productId, List<Product_Variant> variant)
+        public Task AddProductVariantAsync(int productId, List<ProductVariant> variant)
         {
             throw new NotImplementedException();
         }

@@ -12,8 +12,8 @@ namespace DataLayer.Mapping
     {
         public CartItemConfig() {
             ToTable("CartItems", "Cart");
-            HasIndex(x=> new {x.CartId, x.VariantId}).IsUnique();
-            HasRequired(x => x.Variant).WithMany(x => x.CartItem).HasForeignKey(x => x.VariantId).WillCascadeOnDelete(false);
+            HasIndex(x=> new {x.CartId, x.VariantIdCart}).IsUnique();
+            HasRequired(x => x.VariantCart).WithMany(x => x.CartItems).HasForeignKey(x => x.VariantIdCart).WillCascadeOnDelete(false);
         }
     }
 }

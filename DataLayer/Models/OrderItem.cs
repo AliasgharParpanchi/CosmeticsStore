@@ -17,7 +17,7 @@ namespace DataLayer.Models
         public int OrderId { get; set; }
 
         [Required]
-        public int VariantId { get; set; }
+        public int VariantIdOrder { get; set; }
 
         [Required]
         [Display(Name = "تعداد")]
@@ -30,7 +30,7 @@ namespace DataLayer.Models
         [ForeignKey("OrderId")]
         public virtual Order Order { get; set; }        
         
-        [ForeignKey("VariantId")]
-        public virtual Product_Variant Variant { get; set; }
+        [ForeignKey("VariantIdOrder")]
+        public virtual ProductVariant VariantOrder { get; set; }
     }
 }

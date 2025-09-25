@@ -49,16 +49,16 @@ namespace DataLayer.Repositories
         {
             return await _context.Carts
                  .Include(c => c.CartItem)
-                 .Include(c => c.CartItem.Select(ci => ci.Variant))
-                 .Include(c => c.CartItem.Select(ci => ci.Variant.ProductId_Variant))
-                 .Include(c => c.CartItem.Select(ci => ci.Variant.Product_Product_Variant))
+                 .Include(c => c.CartItem.Select(ci => ci.VariantCart))
+                 .Include(c => c.CartItem.Select(ci => ci.VariantCart.ProductId))
+                 .Include(c => c.CartItem.Select(ci => ci.VariantCart.Product))
                  .FirstOrDefaultAsync(c => c.UserId == userId);
         }
 
         public async Task<IEnumerable<CartItem>> GetCartItemAsync(int cartId, int variantId)
         {
             return await _context.CartItems
-                .Where(ci => ci.CartId == cartId && ci.VariantId == variantId).ToListAsync();
+                .Where(ci => ci.CartId == cartId && ci.VariantIdCart == variantId).ToListAsync();
         }
 
         public async Task<decimal> GetCartTotalAsync(int cartId)
@@ -108,7 +108,7 @@ namespace DataLayer.Repositories
                 var newItem = new CartItem
                 {
                     CartId = cartId,
-                    VariantId = variantId,
+                    VariantIdCart = variantId,
                     Quantity = quantity,
                     UnitPrice = unitPrice
                 };

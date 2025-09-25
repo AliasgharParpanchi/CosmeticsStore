@@ -17,7 +17,7 @@ namespace DataLayer.Context
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Products_Categories> Products_Categories { get; set; }
-        public DbSet<Product_Variant> Product_Variants { get; set; }
+        public DbSet<ProductVariant> ProductVariants { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Interest> Interests { get; set; }
         public DbSet<Cart> Carts { get; set; }

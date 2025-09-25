@@ -56,12 +56,12 @@ namespace DataLayer.Repositories
             // افزودن آیتم‌ها
             foreach (var cartItem in cart.CartItem)
             {
-                var variant = await GetVariantByIdAsync(cartItem.VariantId);
+                var variant = await GetVariantByIdAsync(cartItem.VariantIdCart);
                 if (variant == null) continue;
 
                 order.Items.Add(new OrderItem
                 {
-                    VariantId = cartItem.VariantId,
+                    VariantIdOrder = cartItem.VariantIdCart,
                     Quantity = cartItem.Quantity,
                     UnitPrice = cartItem.UnitPrice
                 });
@@ -86,7 +86,7 @@ namespace DataLayer.Repositories
             // بازگردانی موجودی انبار
             foreach (var item in order.Items)
             {
-                var variant = await GetVariantByIdAsync(item.VariantId);
+                var variant = await GetVariantByIdAsync(item.VariantIdOrder);
                 if (variant != null)
                 {
                     variant.Stock += item.Quantity;
@@ -150,8 +150,8 @@ namespace DataLayer.Repositories
                         .Include(o => o.User)
                         .Include(o => o.Address)
                         .Include(o => o.OrderStatus)
-                        .Include(o => o.Items.Select(i => i.Variant))
-                        .Include(o => o.Items.Select(i => i.Variant.Product_Product_Variant))
+                        .Include(o => o.Items.Select(i => i.VariantOrder))
+                        .Include(o => o.Items.Select(i => i.VariantOrder.Product))
                         .FirstOrDefaultAsync(o => o.OrderId == orderId);
         }
 
@@ -176,14 +176,14 @@ namespace DataLayer.Repositories
             }
         }
 
-        public async Task<Product_Variant> GetVariantByIdAsync(int variantId)
+        public async Task<ProductVariant> GetVariantByIdAsync(int variantId)
         {
-            return await _context.Product_Variants
-                .Include(v => v.Product_Product_Variant)
+            return await _context.ProductVariants
+                .Include(v => v.Product)
                 .FirstOrDefaultAsync(v => v.VariantId == variantId);
         }
 
-        public async Task<Product_Variant> UpdateVariantAsync(Product_Variant variant)
+        public async Task<ProductVariant> UpdateVariantAsync(ProductVariant variant)
         {
             var existingVariant = await GetVariantByIdAsync(variant.VariantId);
             if (existingVariant == null) return null;

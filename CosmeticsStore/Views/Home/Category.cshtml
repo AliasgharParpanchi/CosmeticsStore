@@ -1,0 +1,130 @@
+﻿@model IEnumerable<DataLayer.Models.Category>
+@{
+    Layout = null;
+    var a = Model;
+    int c = 0;
+}
+
+@if (ViewBag.Section == 1)
+{
+    <div class="invisible position-fixed left-0 top-0 h-full -z-10 w-screen opacity-0 transition-all ease-in-out lg:hidden duration-0 [&>div]:translate-x-full" id="menuBar">
+        @*<label class="position-absolute top-0 -z-10 h-screen w-full bg-black bg-opacity-60"></label>*@
+        <div class="position-relative flex h-full flex-column overflow-x-hidden bg-white transition-all duration-300 ease-in-out header-drawer overflow-y-hidden">
+            <div class="flex h-14 w-full justify-content-between p-4 text-text-black shadow-sm" data-sentry-component="DrawerHeader" data-sentry-source-file="drawer-header.tsx">
+                <div></div>
+                <span class="bg-white text-base font-medium">دسته بندی ها</span>
+                <label class="pointer-event" @*id="closeButton"*@ onclick="closeMenuBar()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x h-6 w-6 text-text-black" viewBox="0 0 24 24" data-sentry-element="svg" data-sentry-source-file="close.tsx" data-sentry-component="IconClose">
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                    </svg>
+                </label>
+            </div>
+            <div id="menu-grouping" class="position-relative d-grid grid-cols-2 gap-2 px-2 pt-6" data-sentry-component="MenuGrouping" data-sentry-source-file="menu-grouping.tsx">
+                <!--گروه بندی-->
+                @foreach (var MainCat in Model)
+                {
+                    <div class="col-span-1">
+                        <div class="[&>div]:w-5/6" data-sentry-component="SubMenuBox" data-sentry-source-file="sub-menu-box.tsx">
+                            <label class="flex border-spacing-px flex-column items-center justify-content-center gap-1 rounded border border-border-gray-medium bg-white py-2.5 shadow-sm text-text-black" for="@MainCat.CategoryId">
+                                <span class="text-base fw-bold">@MainCat.Name</span>
+                            </label>
+                            <input class="peer/panel hidden" id="@MainCat.CategoryId" type="checkbox" />
+                            <div class="hidden w-screen flex-column align-content-start overflow-hidden rounded-md bg-white pb-18 peer-checked/panel:fixed peer-checked/panel:right-0 peer-checked/panel:top-0 peer-checked/panel:z-10 peer-checked/panel:flex peer-checked/panel:h-screen peer-checked/panel:overflow-auto" data-sentry-component="SubMenuContent" data-sentry-source-file="sub-menu-content.tsx">
+                                <div class="flex h-14 w-full justify-content-between p-4 text-text-black shadow-sm">
+                                    <div>
+                                        <label for="@MainCat" class="pointer-event" onclick="closeMenuSub()">
+                                            @*<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi-arrow-right h-6 w-6 text-text-black" viewBox="0 0 24 24" data-sentry-element="svg" data-sentry-source-file="arrow-right.tsx" data-sentry-component="IconArrowRight">
+                                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                                                </svg>*@
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right h-6 w-6 text-text-black" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                                            </svg>
+                                        </label>
+                                    </div>
+                                    <span class="bg-white text-base font-medium">@MainCat.Name</span>
+                                    <label class="pointer-event" @*id="closeButton"*@ onclick="closeMenuBar()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x h-6 w-6 text-text-black" viewBox="0 0 24 24" data-sentry-element="svg" data-sentry-source-file="close.tsx" data-sentry-component="IconClose">
+                                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                                        </svg>
+                                    </label>
+                                </div>
+                                <div class="mt-2 flex w-full flex-column gap-0 bg-white p-2 md:mt-0 [&>a]:border-b [&>a]:border-border-gray-medium [&>a]:px-2 [&>a]:py-2.5 [&>a]:text-body-14 [&>a]:text-text-black">
+                                    <span class="border-b border-border-gray-medium px-2 py-2.5 text-body-14 text-text-black">
+                                        همه محصولات
+                                        <a href="//">@MainCat.Name</a>
+                                    </span>
+                                    @foreach (var SubCat in MainCat.Children)
+                                    {
+                                        c++;
+                                        <button class="flex w-full items-center justify-content-center px-2 py-2.5 text-text-black border-b border-border-gray-medium" style="justify-content : space-between !important; border-left: none; border-right: none; border-bottom: none;" id="ButtonSubCat_@c" onclick="OpenCloseSubCat('@c')" type="button" aria-expanded="false" data-headlessui-state>
+                                            <span class="text-sm font-medium leading-6">@SubCat.Name</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-caret-down-square h-6 w-6 transition-all duration-200" viewBox="0 0 16 16" id="CharSubCat_@c">
+                                                <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0z" />
+                                                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
+                                            </svg>
+                                        </button>
+                                        <div class="overflow-hidden transition-all duration-200 hidden" id="SubCat_@c">
+                                            <div class="flex flex-column gap-0 border-b border-border-gray-medium text-xs font-medium text-text-darkGray [&>a]:px-2 [&>a]:py-2.5" id="headlessui-disclosure-panel-:r24:" data-headlessui-state="open" data-open>
+                                                <a href="">همه محصولات @SubCat.Name</a>
+                                            </div>
+                                            @foreach (var Children in SubCat.Children)
+                                            {
+                                                <div class="flex flex-column gap-0 border-b border-border-gray-medium text-xs font-medium text-text-darkGray [&>a]:px-2 [&>a]:py-2.5" id="headlessui-disclosure-panel-:r24:" data-headlessui-state="open" data-open>
+                                                    <a href="">@SubCat.Name</a>
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+}
+else if (ViewBag.Section == 2)
+{
+    <ul class="hide-scrollbar hidden align-items-stretch overflow-x-auto text-sm font-medium text-white lg:flex [&>li]:px-3 h-full" data-sentry-component="MegaMenu" data-sentry-source-file="mega-menu.tsx">
+        @foreach (var MainCat in Model)
+        {
+            <li class="flex cursor-pointer items-center whitespace-nowrap transition-all duration-100 ease-in-out hover:text-brand-secondary group px-3">
+                <a href="" class="">@MainCat.Name</a>
+                <div class="position-absolute right-0 top-11 z-10 hidden w-full translate-x-1/2 transform cursor-auto justify-content-start gap-3 overflow-auto rounded-b-md border-b border-t border-neutral-200 bg-white shadow-low group-hover:flex lg:max-h-fit">
+                    <div class="hover:[&>*]block group/submenu layout-container flex flex-column gap-4 py-6" data-sentry-component="ProductsMenu" data-sentry-source-file="products-menu.tsx">
+                        <button class="position-relative flex items-center justify-content-center overflow-hidden rounded text-body-14 focus-visible:outline-none px-4 py-2 fw-bold pl-3 text-primary-main hover:text-primary-shade-700 disabled:text-primary-shade-200 !w-fit cursor-default simple-arrow-button">
+                            <span class="flex items-center position-relative z-10 gap-2 flex-row-reverse">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                                </svg>
+                                <span class="cursor-pointer">
+                                    همه
+                                    <a href="">@MainCat.Name</a>
+                                </span>
+                            </span>
+                        </button>
+                        <div class="flex gap-4">
+                            <div class="flex min-w-\[176px\] border-spacing-px flex-column gap-6 border-l border-neutral-200 pl-4 last:border-none">
+                                <div class="flex flex-column gap-2">
+                                    @foreach (var SubCat in MainCat.Children)
+                                    {
+                                        <a class="border-r-2 border-brand-secondary bg-white pr-2 text-sm fw-bold leading-9 text-text-black lg:leading-6" href="">@SubCat.Name</a>
+                                        if (SubCat.Children.Count > 0)
+                                        {
+                                            foreach (var Children in SubCat.Children)
+                                            {
+                                                <a class="text-sm fw-normal leading-6 text-text-darkGray" href="">@Children.Name</a>
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+}

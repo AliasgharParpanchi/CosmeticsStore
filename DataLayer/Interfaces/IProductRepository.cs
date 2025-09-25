@@ -47,6 +47,6 @@ namespace DataLayer.Interfaces
         Task<PagedResult<Product>> GetPagedProductsAsync(ProductViewModel specParams);
         Task UpdateProductStockAsync(int productId, List<Product_VariantViewModel> variants);
         Task UpdateProductCategoriesAsync(int productId, IEnumerable<int> categoryIds);
-        Task AddProductVariantAsync(int productId, List<Product_Variant> variant);
+        Task AddProductVariantAsync(int productId, List<ProductVariant> variant);
     }
 }

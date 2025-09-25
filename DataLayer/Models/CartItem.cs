@@ -17,7 +17,7 @@ namespace DataLayer.Models
         public int CartId { get; set; }
 
         [Required]
-        public int VariantId { get; set; }
+        public int VariantIdCart { get; set; }
 
         public int Quantity { get; set; }
 
@@ -26,7 +26,7 @@ namespace DataLayer.Models
 
         [ForeignKey("CartId")]
         public virtual Cart Cart { get; set; }
-        [ForeignKey("VariantId")]
-        public virtual Product_Variant Variant { get; set; }
+        [ForeignKey("VariantIdCart")]
+        public virtual ProductVariant VariantCart { get; set; }
     }
 }

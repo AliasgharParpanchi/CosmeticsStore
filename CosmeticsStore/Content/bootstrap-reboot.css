@@ -238,18 +238,18 @@ sup {
   top: -0.5em;
 }
 
-a {
+/*a {
   color: var(--bs-link-color);
   text-decoration: underline;
 }
 a:hover {
   color: var(--bs-link-hover-color);
-}
+}*/
 
-a:not([href]):not([class]), a:not([href]):not([class]):hover {
+/*a:not([href]):not([class]), a:not([href]):not([class]):hover {
   color: inherit;
   text-decoration: none;
-}
+}*/
 
 pre,
 code,

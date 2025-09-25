@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Mapping
 {
-    public class Product_VariantConfig : EntityTypeConfiguration<Product_Variant>
+    public class Product_VariantConfig : EntityTypeConfiguration<ProductVariant>
     {
         public Product_VariantConfig()
         {
-            ToTable("Product_Variants", "Product"); 
+            ToTable("ProductVariants", "Product");
+            Property(p => p.VariantId).HasColumnName("VariantId");
         }
     }
 }

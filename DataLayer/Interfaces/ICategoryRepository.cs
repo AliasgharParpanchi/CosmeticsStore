@@ -10,11 +10,12 @@ namespace DataLayer.Interfaces
 {
     public interface ICategoryRepository: IRepository<Category>
     {
-        Task<IEnumerable<Category>> GetCategoryTreeAsync();
+        Task<List<Category>> GetCategoryTreeAsync();
         Task<Category> GetCategoryWithChildrenAsync(int id);
         Task<IEnumerable<Category>> GetMainCategoriesAsync();
         Task<IEnumerable<Category>> GetSubcategoriesAsync(int parentId);
         Task<IEnumerable<Category>> GetSystemCategoriesAsync();
         Task<IEnumerable<Category>> GetUserCategoriesAsync();
+       
     }
 }

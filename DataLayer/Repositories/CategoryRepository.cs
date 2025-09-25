@@ -24,13 +24,6 @@ namespace DataLayer.Repository
             _context = context;
         }
 
-        public async Task<IEnumerable<Category>> GetCategoryTreeAsync()
-        {
-            return await _context.Categories
-            .Include(c => c.Children)
-            .Where(c => c.ParentId == null)
-            .ToListAsync();
-        }
 
         public async Task<Category> GetCategoryWithChildrenAsync(int id)
         {
@@ -63,6 +56,33 @@ namespace DataLayer.Repository
         public async Task<IEnumerable<Category>> GetUserCategoriesAsync()
         {
             return await _context.Categories.ToListAsync();
+        }
+
+        // متدهای کمکی برای ایجاد درخت دسته‌بندی
+        public async Task<List<Category>> GetCategoryTreeAsync()
+        {
+            var allCategories = await GetUserCategoriesAsync();
+            return BuildCategoryTree(allCategories.ToList(), null);
+        }
+
+        private List<Category> BuildCategoryTree(List<Category> allCategories, int? parentId)
+        {
+            return allCategories
+                .Where(c => c.ParentId == parentId)
+                .OrderBy(c => c.Name)
+                .Select(c => new Category
+                {
+                    CategoryId = c.CategoryId,
+                    Name = c.Name,
+                    Description = c.Description,
+                    Level = c.Level,
+                    ParentId = c.ParentId,
+                    IsActive = c.IsActive,
+                    MainSystemType = c.MainSystemType,
+                    SubSystemType = c.SubSystemType,
+                    Children = BuildCategoryTree(allCategories, c.CategoryId)
+                })
+                .ToList();
         }
     }
 }

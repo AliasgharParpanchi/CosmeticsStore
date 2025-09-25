@@ -22,7 +22,7 @@ namespace DataLayer.Interfaces
         Task<decimal> GetTotalSalesAsync();
         Task<bool> DeleteOrderAsync(int orderId);
         Task<int> GenerateOrderCodeAsync();
-        Task<Product_Variant> GetVariantByIdAsync(int variantId);
-        Task<Product_Variant> UpdateVariantAsync(Product_Variant variant);
+        Task<ProductVariant> GetVariantByIdAsync(int variantId);
+        Task<ProductVariant> UpdateVariantAsync(ProductVariant variant);
     }
 }
