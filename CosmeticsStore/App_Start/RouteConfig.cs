@@ -17,6 +17,11 @@ namespace CosmeticsStore
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );            
+            routes.MapRoute(
+                name: "Admin",
+                url: "Admin/{controller}/{action}/{id}",
+                defaults: new { controller = "AdminHome", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
