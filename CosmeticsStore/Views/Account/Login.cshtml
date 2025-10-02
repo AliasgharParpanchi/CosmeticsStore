@@ -1,0 +1,48 @@
+﻿@model DataLayer.Models.User
+@{
+    ViewBag.Title = "ورود";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<h1 class="text-body/16 fw-bold md:mb-6 mb-8">ورود</h1>
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @Class = "h-full before:absolute flex flex-column" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Email)
+
+    <span class="md:text-body/16 text-body/14 mb-1"> رمز عبور را وارد کنید. </span>
+    <div class="flex items-center gap-2 h-11 rounded z-10 border before:-z-10 position-relative before:-left-6 before:top-6 before:absolute md:before:content-[''] before:content-[url('/Content/Images/Site/mobile-pattern.png')] mb-1 border-border-gray-medium bg-surface-solid-0 focus-within:border-border-black">
+        @Html.PasswordFor(model => model.Password, new { @Style = "direction: ltr;", @Class = "disabled:placeholder-text-lighGray py-2 w-full text-body/14 md:text-body/16 bg-surface-solid-0 focus-within:outline-none enabled:placeholder-text-mediumGray px-2 disabled:bg-transparent border-0", @autofocus = "false", @tabindex = "1", @id = "PasswordIn" })
+    </div>
+
+    if (@ViewBag.Error != null)
+    {
+        <span class="md:text-body/14 text-caption/12 md:h-7 h-5 flex items-center gap-1 text-alert-error-dark" id="error">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
+            </svg>
+            <span>@ViewBag.Error</span>
+        </span>
+    }
+
+    <button id="subBtn" class="flex items-center justify-content-center transition-all w-full ease-in-out bg-brand-secondary disabled:bg-[#FBCFE8] py-2.5 md:text-body/16 text-body/14 text-white rounded mt-auto md:mb-4 mb-2" disabled type="submit" full-width>ورود</button>
+}
+
+
+@section scripts{
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/messages_fa.js"></script>
+    <script src="~/Scripts/Login/Login.js"></script>
+    <script>
+        $('#PasswordIn').on('input', disableLoginBtn);
+        $('#PasswordIn').change('input', disableLoginBtn);
+        $('#PasswordIn').keypress('input', disableLoginBtn);
+        $('#PasswordIn').blur('input', disableLoginBtn);
+
+    </script>
+}
+

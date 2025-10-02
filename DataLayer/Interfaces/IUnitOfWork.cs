@@ -16,8 +16,13 @@ namespace DataLayer.Interfaces
         IOrderRepository Orders { get; }
         IAddressRepository Addresses { get; }
         ICartRepository Carts { get; }
+
+        void BeginTransaction();
+        void CommitTransaction();
+        void RollbackTransaction();
+
+        int Complete();
         Task<int> CompleteAsync();
-        void Rollback();
     }
 
 

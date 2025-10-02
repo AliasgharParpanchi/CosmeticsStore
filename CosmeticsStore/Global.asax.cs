@@ -28,5 +28,10 @@ namespace CosmeticsStore
             // Dependency Injection
             //DependencyInjectionConfig.Register();
         }
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("fa-IR");
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fa");
+        }
     }
 }

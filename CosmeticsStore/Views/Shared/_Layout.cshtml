@@ -3,9 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - GlowVibes</title>
     <link rel="stylesheet" href="~/Content/StyleSheetSite.css" />
-    @*<link rel="stylesheet" href="~/Content/bootstrap.css" />*@
     <link href="/Content/css/style.css" rel="stylesheet">
     <link href="/Content/css/responsive.css" rel="stylesheet">
     <link href="~/Content/bootstrap.rtl.css" rel="stylesheet" />
@@ -159,15 +158,26 @@
                             </div>
                         </div>
                     </div>
-                    <button class="position-relative flex items-center justify-content-center overflow-hidden rounded text-body-14 focus-visible:outline-none px-4 fw-bold pr-3 border-primary-main hover:border-primary-shade-700 disabled:border-border-pink py-[7px] !border text-primary-main hover:text-primary-shade-700 disabled:text-primary-shade-200 lg:w-30 bg-white" style="width: 120px; height: 39.3px;">
-                        <span class="flex items-center position-relative z-10 gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-box-arrow-in-right h-6 w-6" viewBox="0 0 16 16" data-sentry-element="svg" data-sentry-source-file="Login.tsx">
-                                <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z" />
-                                <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
-                            </svg>
-                            ورود
-                        </span>
-                    </button>
+                    @if (Session["UserId"] == null)
+                    {
+                        <button class="position-relative flex items-center justify-content-center overflow-hidden rounded text-body-14 focus-visible:outline-none px-4 fw-bold pr-3 border-primary-main hover:border-primary-shade-700 disabled:border-border-pink py-[7px] !border text-primary-main hover:text-primary-shade-700 disabled:text-primary-shade-200 lg:w-30 bg-white" style="width: 120px; height: 39.3px;" id="btnLogin">
+                            <span class="flex items-center position-relative z-10 gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-box-arrow-in-right h-6 w-6" viewBox="0 0 16 16" data-sentry-element="svg" data-sentry-source-file="Login.tsx">
+                                    <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z" />
+                                    <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+                                </svg>
+                                ورود
+                            </span>
+                        </button>
+                    }
+                    else if (Convert.ToBoolean(Session["IsAdmin"]) == false)
+                    {
+
+                    }
+                    else if (Convert.ToBoolean(Session["IsAdmin"]) == true)
+                    {
+                        <span>شما ادمین </span>
+                    }
                     <a class="flex items-center" aria-label="Cart" href="/">
                         <div class="position-relative" data-sentry-component="CartCounterButton" data-sentry-source-file="cart-counter-button.tsx">
                             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-cart2 h-6 w-6 text-text-black" viewBox="0 0 16 16">

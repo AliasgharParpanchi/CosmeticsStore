@@ -52,12 +52,12 @@ menuButton.addEventListener('click', () => {
     menuBar.classList.add('visible', 'opacity-100', '[&>div]:translate-x-0', '[&>div]:w-5/6', 'z-top-of-chatbot-plus1');
 });
 
-// مدیریت کلیک خارج از منو
-document.addEventListener('click', (e) => {
-    if (!menuBar.contains(e.target) && !menuButton.contains(e.target)) {
-        closeButton.click();
-    }
-});
+//// مدیریت کلیک خارج از منو
+//document.addEventListener('click', (e) => {
+//    if (!menuBar.contains(e.target) && !menuButton.contains(e.target)) {
+//        closeButton.click();
+//    }
+//});
 
 function closeMenuBar() {
 
@@ -94,19 +94,6 @@ function OpenCloseSubCat(num) {
 
 }
 
-//function showFooter(nameShow) {
-//    var arrowSVG = $('#arrow' + nameShow);
-//    var component = $('#Link' + nameShow);
-
-//    if (arrowSVG.hasClass('rotate-180')) {
-//        arrowSVG.removeClass('rotate-180');
-//    }
-//    else {
-//        arrowSVG.addClass('rotate-180');
-//        $(component).clone().appendTo('#Cap' + nameShow);
-//    }
-//}
-
 function showFooter(nameShow) {
     var $arrow = $('#arrow' + nameShow);
     var $container = $('#Cap' + nameShow);
@@ -133,3 +120,7 @@ function showFooter(nameShow) {
         $arrow.data(dataKey, $clone);
     }
 }
+
+$('#btnLogin').click(() => {
+    window.location.href = "/Account"
+})

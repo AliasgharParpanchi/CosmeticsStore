@@ -32,27 +32,46 @@ namespace DataLayer.UnitOfWork
             _transaction = _context.Database.BeginTransaction();
         }
 
+
         public ICategoryRepository Categories =>
-    _categoryRepository = new CategoryRepository(_context);
+            _categoryRepository ?? (_categoryRepository = new CategoryRepository(_context));
 
         public IProductRepository Products =>
-            _productRepository = new ProductRepository(_context);
+            _productRepository ?? (_productRepository = new ProductRepository(_context));
 
         public IUserRepository Users =>
-            _userRepository = new UserRepository(_context); 
-        
-        public IInterestRepository Interests =>
-            _interestRepository = new InterestRepository(_context);  
-        
-        public ICommentRepository Comments =>
-            _commentRepository = new CommentRepository(_context);        
-        public IOrderRepository Orders =>
-            _orderRepository = new OrderRepository(_context);        
-        public IAddressRepository Addresses =>
-            _addressRepository = new AddressRepository(_context);       
-        public ICartRepository Carts =>
-            _cartRepository = new CartRepository(_context);
+            _userRepository ?? (_userRepository = new UserRepository(_context));
 
+        public IInterestRepository Interests =>
+            _interestRepository ?? (_interestRepository = new InterestRepository(_context));
+
+        public ICommentRepository Comments =>
+            _commentRepository ?? (_commentRepository = new CommentRepository(_context));
+
+        public IOrderRepository Orders =>
+            _orderRepository ?? (_orderRepository = new OrderRepository(_context));
+
+        public IAddressRepository Addresses =>
+            _addressRepository ?? (_addressRepository = new AddressRepository(_context));
+
+        public ICartRepository Carts =>
+            _cartRepository ?? (_cartRepository = new CartRepository(_context));
+
+        // متد همزمان برای سازگاری
+        public int Complete()
+        {
+            try
+            {
+                return _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                RollbackTransaction();
+                throw new Exception("خطایی در ذخیره‌سازی رخ داده است", ex);
+            }
+        }
+
+        // متد ناهمزمان
         public async Task<int> CompleteAsync()
         {
             try
@@ -61,12 +80,30 @@ namespace DataLayer.UnitOfWork
             }
             catch (Exception ex)
             {
-                Rollback();
-                throw new NotImplementedException("خطایی در ذخیره سازی رخ داده است دوباره امتحان کنید", ex);
+                RollbackTransaction();
+                throw new Exception("خطایی در ذخیره‌سازی رخ داده است", ex);
             }
         }
 
-        public void Rollback()
+        public void CommitTransaction()
+        {
+            try
+            {
+                _transaction?.Commit();
+            }
+            catch (Exception ex)
+            {
+                RollbackTransaction();
+                throw new Exception("خطا در تایید تراکنش", ex);
+            }
+            finally
+            {
+                DisposeTransaction();
+            }
+        }
+
+
+        public void RollbackTransaction()
         {
             try
             {
@@ -74,8 +111,8 @@ namespace DataLayer.UnitOfWork
             }
             catch (Exception ex)
             {
-                // مدیریت خطاهای احتمالی در Rollback
-                throw new NotImplementedException("خطایی در دیتابیس رخ داده است", ex);
+                // لاگ کنید اما خطا نیندازید
+                System.Diagnostics.Debug.WriteLine("خطا در Rollback: " + ex.Message);
             }
             finally
             {
@@ -85,13 +122,16 @@ namespace DataLayer.UnitOfWork
 
         private void DisposeTransaction()
         {
-            _transaction?.Dispose();
-            _transaction = null;
+            if (_transaction != null)
+            {
+                _transaction.Dispose();
+                _transaction = null;
+            }
         }
 
         public void Dispose()
         {
-            _context.Dispose();
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
 
@@ -102,10 +142,11 @@ namespace DataLayer.UnitOfWork
                 if (disposing)
                 {
                     DisposeTransaction();
-                    _context.Dispose();
+                    _context?.Dispose();
                 }
                 _disposed = true;
             }
         }
     }
 }
+

@@ -20,14 +20,9 @@ namespace DataLayer.Models
         [MaxLength(150, ErrorMessage = "تعداد کاراکتر مجاز نمی باشد")]
         public string LastName { get; set; }
 
-        [Display(Name = "نام کاربری")]
-        [MaxLength(50, ErrorMessage = "تعداد کاراکتر مجاز نمی باشد")]
-        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
-        public string UserName { get; set; }
-
         [Display(Name = "ایمیل")]
         [MaxLength(50, ErrorMessage = "تعداد کاراکتر مجاز نمی باشد")]
-        [EmailAddress(ErrorMessage = "آدرس ایمیل مجاز نمی باشد")]
+        [RegularExpression(@"^[^@\s]+@[^@\s]+\.[^@\s]+$", ErrorMessage = "آدرس ایمیل مجاز نمی باشد")]
         public string Email { get; set; }
 
 
@@ -57,7 +52,6 @@ namespace DataLayer.Models
         public bool IsAdmin { get; set; }
 
         [Display(Name = "رمز عبور")]
-        [MaxLength(20, ErrorMessage = "تعداد کاراکتر باید کمتر از 20 باشد")]
         [MinLength(5, ErrorMessage = "تعداد کاراکتر باید بیشتر از 5 باشد")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [DataType(DataType.Password)]

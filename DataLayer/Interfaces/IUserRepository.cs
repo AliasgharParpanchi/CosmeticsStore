@@ -13,7 +13,6 @@ namespace DataLayer.Interfaces
         //Task<bool> CreateUser(User user);
         //Task<bool> DeleteUser(int id);
 
-        User GetByUsername(string username);
         User GetByEmail(string email);
         User GetByPhone(string phone);
         User GetByNationalCode(string nationalCode);
@@ -21,6 +20,6 @@ namespace DataLayer.Interfaces
         bool ValidateUser(string username, string password);
         //void UpdateUserProfile(int userId, User updatedUser);
         void ChangePassword(int userId, string newPassword);
-
+        Task<User> GetUserByCredentialsAsync(string email, string hashedPassword);
     }
 }

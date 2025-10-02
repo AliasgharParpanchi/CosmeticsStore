@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Glow Vibes</title>
+    <link rel="stylesheet" href="~/Content/StyleSheetSite.css" />
+    <link href="/Content/css/style.css" rel="stylesheet">
+    <link href="/Content/css/responsive.css" rel="stylesheet">
+    <link href="~/Content/bootstrap.rtl.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-reboot.rtl.css" rel="stylesheet" />
+    <style>
+        body {
+            transition: opacity ease-in 0.2s;
+        }
+
+        div {
+            display: block;
+            unicode-bidi: isolate;
+        }
+
+        body[unresolved] {
+            opacity: 0;
+            display: block;
+            overflow: hidden;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" data-v-app="">
+        <div class="iransans-x-numbers overflow-hidden flex h-dvh items-center justify-content-center text-text-black">
+            <div class="bg-white before:absolute w-full md:before:-z-10 md:before:right-auto before:top-6 before:-right-2 before:content-[url('/Content/Images/Site/mobile-pattern-2.png')] md:before:content-[url('/Content/Images/Site/pattern.png')] md:before:-left-[101px] flex md:shadow-sm md:before:-left-[101px] flex-column md:w-[416px] h-dvh md:h-[496px] position-relative md:border px-2 pb-6 border-gray-300 pt-14 md:pt-6 md:pb-4 md:px-6 rounded">
+                <div class="position-fixed top-0 items-center justify-content-start p-4 md:hidden w-full right-0 bg-surface-solid-0 shadow-sm" id="backButton">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right cursor-pointer" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                    </svg>
+                </div>
+                <img src="~/Content/Images/Site/Logo.png" class="w-[164px] h-16 mx-auto mt-[92px] mb-18 md:mt-0 md:mb-6">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+</body>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+</html>

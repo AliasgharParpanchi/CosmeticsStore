@@ -332,6 +332,14 @@
     <Compile Include="Migrations\202509132031435_FixProductVariantNaming.Designer.cs">
       <DependentUpon>202509132031435_FixProductVariantNaming.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202510010910287_ChangeUserModel.cs" />
+    <Compile Include="Migrations\202510010910287_ChangeUserModel.Designer.cs">
+      <DependentUpon>202510010910287_ChangeUserModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202510011017430_ChangeUserModelForPassword.cs" />
+    <Compile Include="Migrations\202510011017430_ChangeUserModelForPassword.Designer.cs">
+      <DependentUpon>202510011017430_ChangeUserModelForPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -438,6 +446,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202509132031435_FixProductVariantNaming.resx">
       <DependentUpon>202509132031435_FixProductVariantNaming.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202510010910287_ChangeUserModel.resx">
+      <DependentUpon>202510010910287_ChangeUserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202510011017430_ChangeUserModelForPassword.resx">
+      <DependentUpon>202510011017430_ChangeUserModelForPassword.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -14,7 +14,6 @@ namespace DataLayer.Mapping
         public UserConfig()
         {
             ToTable("Users", "Log");
-            HasIndex(x => x.UserName).IsUnique();
             HasIndex(x => x.Email).IsUnique();
         }
     }

@@ -51,11 +51,6 @@ namespace DataLayer.Repositories
             return _context.Users.FirstOrDefault(x => x.Phone == phone);
         }
 
-        public User GetByUsername(string username)
-        {
-            return _context.Users.FirstOrDefault(u => u.UserName == username);
-        }
-
 
         public IEnumerable<User> SearchUsers(string searchTerm)
         {
@@ -63,7 +58,6 @@ namespace DataLayer.Repositories
                            .Where(u =>
                                u.FirstName.Contains(searchTerm) ||
                                u.LastName.Contains(searchTerm) ||
-                               u.UserName.Contains(searchTerm) ||
                                u.Email.Contains(searchTerm) ||
                                u.Phone.Contains(searchTerm))
                            .ToList();
@@ -111,14 +105,19 @@ namespace DataLayer.Repositories
         //    // _context.SaveChanges();
         //}
 
-        public bool ValidateUser(string username, string password)
+        public bool ValidateUser(string email, string password)
         {
-            var user = GetByUsername(username);
+            var user = GetByEmail(email);
             if (user == null) return false;
 
             return user.Password == password; // در عمل باید از هش استفاده شود
         }
 
+        public async Task<User> GetUserByCredentialsAsync(string email, string hashedPassword)
+        {
+            return await _context.Users
+                .FirstOrDefaultAsync(u => u.Email == email && u.Password == hashedPassword);
+        }
 
     }
 }

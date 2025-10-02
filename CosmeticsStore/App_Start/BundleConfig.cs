@@ -25,6 +25,11 @@ namespace CosmeticsStore
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+    "~/Scripts/jquery.validate*",
+    "~/Scripts/jquery.validate.unobtrusive*",
+    "~/Scripts/jquery.validate.localization/messages_fa.js"));
         }
     }
 }
