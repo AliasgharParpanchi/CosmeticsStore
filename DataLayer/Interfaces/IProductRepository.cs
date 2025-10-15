@@ -48,5 +48,6 @@ namespace DataLayer.Interfaces
         Task UpdateProductStockAsync(int productId, List<Product_VariantViewModel> variants);
         Task UpdateProductCategoriesAsync(int productId, IEnumerable<int> categoryIds);
         Task AddProductVariantAsync(int productId, List<ProductVariant> variant);
+        Task<IEnumerable<Product>> GetLastProductRegisterAsync(int take);
     }
 }

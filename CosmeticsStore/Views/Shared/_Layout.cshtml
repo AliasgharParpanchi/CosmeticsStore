@@ -186,11 +186,11 @@
                         </div>
                     </a>
                 </div>
-                @Html.Action("Category", "Home", new { section = 1 })
+                @Html.Action("Category", "Home", new { section = 1, area = "" })
             </div>
             <div class="hidden h-11 w-full bg-neutral-800 transition-transform duration-300 lg:flex" data-sentry-component="SubMenu" data-sentry-source-file="sub-menu.tsx">
                 <div class="megamenu-container position-relative flex items-center justify-content-start">
-                    @Html.Action("Category", "Home", new { section = 2 })
+                    @Html.Action("Category", "Home", new { section = 2, area = "" })
                 </div>
             </div>
         </header>

@@ -141,5 +141,13 @@ namespace DataLayer.Repository
         {
             throw new NotImplementedException();
         }
+
+        public async Task<IEnumerable<Product>> GetLastProductRegisterAsync(int take)
+        {
+            return await _context.Products.
+                          OrderByDescending(p => p.CreateDate)
+                          .Take(take)
+                          .ToListAsync();
+        }
     }
 }

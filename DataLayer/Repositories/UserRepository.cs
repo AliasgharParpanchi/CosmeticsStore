@@ -119,5 +119,14 @@ namespace DataLayer.Repositories
                 .FirstOrDefaultAsync(u => u.Email == email && u.Password == hashedPassword);
         }
 
+        public async Task<IEnumerable<User>> GetLastRegisterUserAsync(int take)
+        {
+            return await _context.Users
+                        .Where(u => u.IsAdmin != true)
+                        .OrderByDescending(u => u.RegistrationDate)
+                        .Take(take)
+                        .ToListAsync();
+        }
+
     }
 }

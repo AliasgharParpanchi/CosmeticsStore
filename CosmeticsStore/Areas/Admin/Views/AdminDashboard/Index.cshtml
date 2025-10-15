@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "داشبورد ادمین";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="pb-6 pt-2 lg:pt-0">
+    <div class="flex flex-column">
+        @Html.Action("ManageOrder", "AdminDashboard")
+        @Html.Action("Order", "AdminDashboard")
+        @Html.Action("Product", "AdminDashboard")
+        @Html.Action("Users", "AdminDashboard")
+    </div>
+</div>
+

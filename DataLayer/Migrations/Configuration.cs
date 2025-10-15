@@ -501,26 +501,29 @@
                         }
                 );
 
-            context.OrderStatus.AddOrUpdate(
+            if (context.OrderStatus == null)
+            {
+                context.OrderStatus.AddOrUpdate(
 
-                new OrderStatus
-                {
-                    StatusTitle = "پرداخت شده"
-                },
-                new OrderStatus
-                {
-                    StatusTitle = "درحال پردازش"
-                },
-                new OrderStatus
-                {
-                    StatusTitle = "ارسال شده"
-                },
-                new OrderStatus
-                {
-                    StatusTitle = "دریافت شده"
-                }
-                );
-            context.SaveChanges();
+                    new OrderStatus
+                    {
+                        StatusTitle = "پرداخت شده"
+                    },
+                    new OrderStatus
+                    {
+                        StatusTitle = "درحال پردازش"
+                    },
+                    new OrderStatus
+                    {
+                        StatusTitle = "ارسال شده"
+                    },
+                    new OrderStatus
+                    {
+                        StatusTitle = "دریافت شده"
+                    }
+                    );
+                context.SaveChanges();
+            }
         }
     }
 }

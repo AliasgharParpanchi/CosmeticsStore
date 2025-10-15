@@ -21,5 +21,6 @@ namespace DataLayer.Interfaces
         //void UpdateUserProfile(int userId, User updatedUser);
         void ChangePassword(int userId, string newPassword);
         Task<User> GetUserByCredentialsAsync(string email, string hashedPassword);
+        Task<IEnumerable<User>> GetLastRegisterUserAsync(int take);
     }
 }

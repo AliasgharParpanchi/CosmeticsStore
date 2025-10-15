@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using DataLayer.Repositories;
+using System.Web.UI.WebControls;
 
 namespace DataLayer.Repositories
 {
@@ -110,6 +111,17 @@ namespace DataLayer.Repositories
                         .ToListAsync();
         }
 
+        public async Task<IEnumerable<Order>> GetLastOrderAsync(int take)
+        {
+            return await _context.Orders
+                         .OrderByDescending(o => o.OrderDate)
+                         .Take(take)
+                         .Include(o => o.User)
+                         .Include(o => o.OrderStatus)
+                         .Include(o => o.Items)
+                         .OrderByDescending(o => o.OrderDate)
+                         .ToListAsync();
+        }
         public async Task<IEnumerable<OrderStatus>> GetAllOrderStatusesAsync()
         {
             return await _context.OrderStatus.ToListAsync();
@@ -139,9 +151,55 @@ namespace DataLayer.Repositories
                         .ToListAsync();
         }
 
-        public async Task<int> GetOrdersCountAsync()
+        public async Task<int> GetAllOrdersCountAsync()
         {
             return await _context.Orders.CountAsync();
+        }
+
+        public async Task<int> GetPaidOrdersCountAsync()
+        {
+            return await _context.Orders.CountAsync(o => o.OrderStatusId == 1);
+        }
+
+        public async Task<int> GetProccessOrdersCountAsync()
+        {
+            return await _context.Orders.CountAsync(o => o.OrderStatusId == 2);
+        }
+
+        public async Task<int> GetSentOrdersCountAsync()
+        {
+            return await _context.Orders.CountAsync(o => o.OrderStatusId == 3);
+        }
+
+
+        public async Task<Dictionary<string, int>> GetOrderCountPerMonthAsync(DateTime start, DateTime end)
+        {
+            var result = await _context.Orders
+                .Where(o => o.OrderDate >= start && o.OrderDate <= end)
+                .GroupBy(o => new { o.OrderDate.Year, o.OrderDate.Month })
+                .Select(g => new
+                {
+                    Year = g.Key.Year,
+                    Month = g.Key.Month,
+                    Count = g.Count()
+                })
+                .OrderBy(x => x.Year)
+                .ThenBy(x => x.Month)
+                .ToListAsync();
+
+            // تبدیل به دیکشنری با کلید فارسی
+            var persianMonths = new Dictionary<int, string>
+    {
+        {1, "فروردین"}, {2, "اردیبهشت"}, {3, "خرداد"},
+        {4, "تیر"}, {5, "مرداد"}, {6, "شهریور"},
+        {7, "مهر"}, {8, "آبان"}, {9, "آذر"},
+        {10, "دی"}, {11, "بهمن"}, {12, "اسفند"}
+    };
+
+            return result.ToDictionary(
+                x => $"{persianMonths[x.Month]}",
+                x => x.Count
+            );
         }
 
         public async Task<Order> GetOrderWithItemsByIdAsync(int orderId)

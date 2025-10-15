@@ -113,7 +113,22 @@ namespace CosmeticsStore.Controllers
             var user = await _unitOfWork.Users.GetUserByCredentialsAsync(model.Email, hashedPassword);
             if (user != null)
             {
-                FormsAuthentication.SetAuthCookie(user.Email, false);
+                DateTime expirationDate = DateTime.Now.AddDays(7);
+                var authTicket = new FormsAuthenticationTicket(
+                                                        1,
+                                                        user.Email,
+                                                        DateTime.Now,
+                                                        expirationDate,
+                                                        true,
+                                                        $"{user.UserId}|{user.IsAdmin}",
+                                                        FormsAuthentication.FormsCookiePath
+                                                    );
+
+                string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
+                var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+                authCookie.Expires = expirationDate;
+                Response.Cookies.Add(authCookie);
+
                 // ذخیره اطلاعات در Session
                 Session["UserId"] = user.UserId;
                 Session["Email"] = user.Email;

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<DataLayer.Models.Order>
+@{
+    Layout = null;
+    int c = 0;
+}
+<div class="p-2 mb-3 admindashboardshadow admindashboarddiv container">
+    <h1 class="text-body/16 fw-bold md:mb-6 mb-8 page-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-check ms-2" viewBox="0 0 16 16">
+            <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z" />
+            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+        </svg>آخرین سفارشات
+    </h1>
+    <div class="table-container">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-primary">
+                    <tr>
+                        <th scope="col">ردیف</th>
+                        <th scope="col">شماره سفارش</th>
+                        <th scope="col">نام مشتری</th>
+                        <th scope="col">تاریخ سفارش</th>
+                        <th scope="col">مبلغ</th>
+                        <th scope="col">وضعیت</th>
+                        <th scope="col">عملیات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var Order in Model)
+                    {
+                        c = c + 1;
+                        <tr>
+                            <td>@c</td>
+                            <td><strong>@Order.OrderCode</strong></td>
+                            <td>@Order.User.FirstName @Order.User.LastName</td>
+                            <td>@Order.OrderDate.ToString("yyyy/MM/d")</td>
+                            <td>@Order.TotalPrice.ToString("N0")</td>
+                            @if (Order.OrderStatusId == 1)
+                            {
+                                <td><span class="badge badge-status status-pending">@Order.OrderStatus.StatusTitle</span></td>
+                            }
+                            else if (Order.OrderStatusId == 2)
+                            {
+                                <td><span class="badge badge-status status-processing">@Order.OrderStatus.StatusTitle</span></td>
+                            }
+                            else if (Order.OrderStatusId == 3)
+                            {
+                                <td><span class="badge badge-status status-delivered">@Order.OrderStatus.StatusTitle</span></td>
+                            }
+                            else if (Order.OrderStatusId == 4)
+                            {
+                                <td><span class="badge badge-status status-transfer">@Order.OrderStatus.StatusTitle</span></td>
+                            }
+                            <td><a class="btn btn-sm btn-info">مشاهده</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
